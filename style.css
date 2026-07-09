@@ -1,8 +1,9 @@
 :root {
-    /* Cores inspiradas na seleção (Amarelo, Verde e Azul clássico) */
-    --cor-primaria: #006A4E;     /* Verde bandeira clássico */
-    --cor-secundaria: #FDB913;   /* Amarelo canarinho vibrante */
-    --cor-fundo: #f8fafc;
+    /* Cores inspiradas no Neymar (Preto, Ouro/Dourado e Azul Ousadia) */
+    --cor-primaria: #111111;     /* Preto absoluto, base do estilo dele */
+    --cor-secundaria: #D4AF37;   /* Dourado Ouro (Premium/Joia/Ballon d'Or) */
+    --cor-destaque: #0052FF;     /* Azul elétrico vibrante */
+    --cor-fundo: #f4f6f9;
     --cor-texto: #1e293b;
     --cor-contraste: #ffffff;
     --cor-botao: #e2e8f0;
@@ -19,13 +20,15 @@
 }
 
 .tema-escuro {
-    --cor-primaria: #FDB913;     /* Amarelo ganha destaque no tema escuro */
-    --cor-secundaria: #00875F;   /* Verde mais brilhante */
-    --cor-fundo: #0b0f19;
-    --cor-texto: #f1f5f9;
-    --cor-contraste: #111827;
-    --cor-botao: #1e293b;
-    --cor-card: #1e293b;
+    /* No tema escuro, o dourado e o azul ganham força total sobre o grafite escuro */
+    --cor-primaria: #D4AF37;     /* Dourado vira a cor principal */
+    --cor-secundaria: #1a1a1a;   
+    --cor-destaque: #38bdf8;     /* Azul neon */
+    --cor-fundo: #09090b;        /* Fundo ultra escuro moderno */
+    --cor-texto: #f4f4f5;
+    --cor-contraste: #18181b;
+    --cor-botao: #27272a;
+    --cor-card: #18181b;         /* Cards escuros elegantes */
 }
 
 body {
@@ -36,25 +39,32 @@ body {
 }
 
 header {
-    background-color: #006A4E; /* Mantém o verde forte de fundo */
-    background-image: linear-gradient(135deg, #006A4E 0%, #004D38 100%);
+    background-color: #111111; 
+    background-image: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
     color: #ffffff;
     text-align: center;
-    padding: 40px 20px;
-    border-bottom: 5px solid var(--cor-secundaria);
+    padding: 45px 20px;
+    border-bottom: 5px solid var(--cor-secundaria); /* Linha dourada marcante */
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 header p {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto;
-    opacity: 0.9;
+    opacity: 0.85;
+}
+
+.tema-escuro header {
+    background-color: #000000;
+    background-image: linear-gradient(135deg, #000000 0%, #18181b 100%);
 }
 
 .tema-escuro header p {
@@ -74,8 +84,8 @@ main {
 article {
     background-color: var(--cor-card);
     border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border-top: 4px solid var(--cor-primaria);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border-top: 4px solid var(--cor-secundaria); /* Topo sempre destacado em dourado */
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -86,31 +96,36 @@ article {
 
 .tema-escuro article {
     border-top: 4px solid var(--cor-primaria);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* Substituição das imagens por ícones em formato de emoji escaláveis */
 .emoji-icon {
     font-size: 48px;
     margin-bottom: 16px;
     user-select: none;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
 h2 {
     font-size: 1.4rem;
     color: var(--cor-primaria);
     margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.tema-escuro h2 {
+    color: #ffffff; /* Texto branco no modo escuro para melhor contraste */
 }
 
 .artigo-autor {
     font-size: 0.9rem;
-    color: #64748b;
+    color: #71717a;
     margin-bottom: 12px;
     font-style: italic;
 }
 
 .tema-escuro .artigo-autor {
-    color: #94a3b8;
+    color: #a1a1aa;
 }
 
 article p {
@@ -126,17 +141,13 @@ article p {
 }
 
 .artigo-fonte a {
-    color: #0284c7;
+    color: var(--cor-destaque); /* Links com o azul Ousadia */
     text-decoration: none;
     font-weight: 600;
 }
 
 .artigo-fonte a:hover {
     text-decoration: underline;
-}
-
-.tema-escuro .artigo-fonte a {
-    color: #38bdf8;
 }
 
 /* Botões de interatividade */
@@ -153,11 +164,17 @@ button {
     align-items: center;
     gap: 6px;
     font-weight: 600;
-    transition: transform 0.1s ease, background-color 0.2s ease;
+    transition: transform 0.1s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 button:hover {
     transform: scale(1.05);
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
+
+.tema-escuro button:hover {
+    color: #000000;
 }
 
 button:active {
@@ -174,14 +191,16 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--cor-primaria);
-    color: #ffffff;
+    background-color: #111111;
+    color: var(--cor-secundaria); /* Botão flutuante preto com o símbolo dourado */
+    border: 2px solid var(--cor-secundaria);
     border-radius: 50%;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
 
 .tema-escuro .btn-tema-escuro {
     background-color: var(--cor-primaria);
-    color: #111827;
+    color: #111111;
+    border: none;
 }
